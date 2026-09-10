@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>CodeForge AI</title>
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+<body>
+
+<div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-top">
+            <div class="logo">
+                <span class="logo-icon">⌘</span>
+                <span>
+                    CodeForge AI
+                </span>
+            </div>
+            <button
+                id="newChatBtn"
+                class="new-chat-btn"
+                onclick="newChat()"
+            >
+                ＋ New chat
+            </button>
+        </div>
+        <!-- Recent Chats -->
+        <div class="recent-section">
+            <div class="recent-title">
+                Recent
+            </div>
+            <div
+                id="recentChats"
+                class="recent-chats"
+            >
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            CodeForge AI
+        </div>
+    </aside>
+         <!-- MAIN AREA -->      
+    <main class="main">
+        <!-- Welcome -->
+        <div
+            id="welcome"
+            class="welcome"
+        >
+            <h1>
+                What can I help you code?
+            </h1>
+            <p>
+                Generate projects, fix bugs,
+                refactor code, explain code and more.
+            </p>
+
+        </div>
+        <!-- Chat -->
+        <section
+            id="chat"
+            class="chat"
+        >
+        </section>
+             <!-- ATTACHMENT MENU -->
+        <div
+            id="attachmentMenu"
+            class="attachment-menu"
+        >
+            <button
+                class="menu-item"
+                onclick="openFilePicker()"
+            >
+                <span class="menu-icon">
+                    📎
+                </span>
+                <span>
+                    <strong>
+                        Add photos & files
+                    </strong>
+                    <small>
+                        Upload from computer
+                    </small>
+                </span>
+
+            </button>
+            <button
+                class="menu-item"
+                onclick="openFilePicker()"
+            >
+                <span class="menu-icon">
+                    📄
+                </span>
+                <span>
+                    <strong>
+                        Add code file
+                    </strong>
+                    <small>
+                        Python, JavaScript, Java, C++...
+                    </small>
+                </span>
+            </button>
+
+            <button
+                class="menu-item"
+                onclick="openFilePicker()"
+            >
+
+                <span class="menu-icon">
+                    📁
+                </span>
+
+                <span>
+
+                    <strong>
+                        Add multiple files
+                    </strong>
+
+                    <small>
+                        Attach files to your request
+                    </small>
+
+                </span>
+
+            </button>
+
+        </div>
+
+            <!-- COMPOSER -->
+        <div class="composer-wrapper">
+
+            <!-- Attached files -->
+            <div
+                id="attachedFiles"
+                class="attached-files"
+            >
+            </div>
+            <div class="composer">
+
+                <!-- Plus -->
+                <button
+                    id="plusButton"
+                    class="plus-button"
+                    title="Add files"
+                    onclick="toggleAttachmentMenu()"
+                >
+                    +
+                </button>
+
+                <!-- Text Input -->
+                <textarea
+                    id="prompt"
+                    placeholder="Ask anything or paste your code..."
+                    rows="1"
+                    oninput="autoResize(this)"
+                    onkeydown="handleKey(event)"
+                ></textarea>
+
+               <!-- Send -->
+                <button
+                    class="send-button"
+                    onclick="sendMessage()"
+                    title="Send"
+                >
+                    ➤
+                </button>
+            </div>
+        </div>
+
+             <!-- FILE INPUT -->
+
+        <input
+            id="fileInput"
+            type="file"
+            multiple
+            hidden
+            accept=".py,.js,.ts,.java,.cpp,.c,.html,.css,.json,.sql,.md,.txt"
+            onchange="handleFiles(this.files)"
+        >
+    </main>
+</div>
+
+<script
+    src="{{ url_for('static', filename='app.js') }}"
+></script>
+</body>
+</html>

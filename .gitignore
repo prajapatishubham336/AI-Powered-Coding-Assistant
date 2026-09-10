@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+env/
+.venv/
+ENV/
+
+# Environment Variables / Secrets
+.env
+.env.*
+!.env.example
+
+# Flask
+instance/
+.webassets-cache/
+
+# IDE / Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Testing / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build / Distribution
+build/
+dist/
+*.egg-info/
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+
+# Cache
+.cache/
